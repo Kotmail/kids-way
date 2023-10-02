@@ -1,12 +1,14 @@
 extends ../layout
 
 block title
-  title Kids’Way — Первая нумерологическая платформа по раскрытию детского потенциала
+  title KIDS’ WAY — Первая нумерологическая платформа по раскрытию детского потенциала
 
 block beforeLayout
   - layoutClasses.push('page-layout_home')
 
 block content
+  h1.visually-hidden KIDS’ WAY — платформа по раскрытию детского потенциала
+
   +banner({
     src: 'images/banner/image1.jpg',
     alt: 'Баннер «Ребёнок часто болеет?»',
@@ -69,7 +71,7 @@ block content
       src: 'images/logo_square.png',
       width: 285,
       height: 281,
-      alt: 'Логотип «Kids’Way»',
+      alt: 'Логотип «KIDS’ WAY»',
     }
   }, ['page-layout__calc'])
 
@@ -80,3 +82,5 @@ block content
       text: 'Узнать подробнее',
     },
   }, ['page-layout__insertion'])
+
+  a.btn.btn_outline_red.btn_rounded_sm.page-layout__btn.page-layout__btn_consult(href='#') Консультация эксперта

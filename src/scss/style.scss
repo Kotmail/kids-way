@@ -15,6 +15,7 @@
 @use './blocks/btn';
 @use './blocks/field';
 @use './blocks/radio';
+@use './blocks/social-btn';
 @use './blocks/logo';
 @use './blocks/navbar';
 @use './blocks/header';
@@ -56,6 +57,7 @@ body {
 
   &__content {
 		flex: 1 1 auto;
+    padding-bottom: 2.5rem;
 	}
 
   &_home {
@@ -63,13 +65,31 @@ body {
     #{$parent}__calc:not(:last-child) {
       margin-bottom: 1.875rem;
     }
+
+    #{$parent}__btn_consult {
+      display: flex;
+      width: 13.875rem;
+      min-height: 2.625rem;
+      margin-top: 2.5rem;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 1rem;
+    }
   }
 
   @include media-up(md) {
+    &__content {
+      padding-bottom: 3.75rem;
+    }
+
     &_home {
       #{$parent}__banner:not(:last-child),
       #{$parent}__calc:not(:last-child) {
         margin-bottom: 2.5rem;
+      }
+
+      #{$parent}__btn_consult {
+        margin-top: 3.75rem;
       }
     }
   }
@@ -80,6 +100,12 @@ body {
       #{$parent}__calc:not(:last-child) {
         margin-bottom: 3.75rem;
       }
+    }
+  }
+
+  @include media-up(xl) {
+    &__content {
+      padding-bottom: 4.875rem;
     }
   }
 }

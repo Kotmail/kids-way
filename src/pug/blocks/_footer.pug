@@ -1,2 +1,33 @@
 mixin footer(data, modifier)
-  footer.footer(class=modifier) Footer
+  footer.footer(class=modifier)
+    .container.footer__container
+      ul.footer__networks
+        li.footer__network
+          +social-btn({
+            name: 'telegram',
+            href: '#',
+            rel: 'nofollow',
+            label: 'Telegram',
+          }, ['footer__social-btn'])
+        li.footer__network
+          +social-btn({
+            name: 'vk',
+            href: '#',
+            rel: 'nofollow',
+            label: 'Вконтакте',
+          }, ['footer__social-btn'])
+        li.footer__network
+          +social-btn({
+            name: 'email',
+            href: 'mailto:mail@example.com',
+            label: 'mail@example.com',
+          }, ['footer__social-btn'])
+        li.footer__network
+          +social-btn({
+            name: 'phone',
+            href: 'tel:+70000000000',
+            label: '+7(000) 000-00-00',
+          }, ['footer__social-btn'])
+      a.btn.btn_outline_white.btn_rounded_full.footer__btn(href='/testimonials.html') Отзывы
+      .footer__copyright 2023
+        sup &#032;&reg;
