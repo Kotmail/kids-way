@@ -53,6 +53,13 @@ mixin calc(data, modifier)
                       input#calcRadioPackage3.radio__input(type='radio' name='package' value='Компенсаторика')
                       label.radio__label(for='calcRadioPackage3') Компенсаторика
                   button.btn.btn_outline_red.btn_rounded_sm.calc__btn(type='submit') Получить
+            if (data.messages)
+            .calc__messages
+              each message in data.messages
+                .calc__message
+                  if (message.heading)
+                    .calc__heading!=message.heading
+                  .calc__desc!=message.desc
         .calc__col.calc__col_two
           if (data.illustration)
             .calc__illustration

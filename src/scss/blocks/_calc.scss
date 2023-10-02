@@ -10,6 +10,10 @@
     border-radius: .3125rem;
   }
 
+  &__parts:not(:last-child) {
+    margin-bottom: 1.5625rem;
+  }
+
   &__fieldset {
     margin: 0;
     padding: 0;
@@ -164,6 +168,39 @@
     margin-top: 1.125rem;
   }
 
+  &__message {
+    padding: .8125rem 1.25rem;
+    border-radius: .3125rem;
+    background-color: #f8f8f8;
+
+    &:not(:last-child) {
+      margin-bottom: 1.25rem;
+    }
+  }
+
+  &__heading {
+    font-weight: 500;
+    font-size: .9375rem;
+    color: #6b6b6b;
+
+    &:not(:last-child) {
+      margin-bottom: .3125rem;
+    }
+  }
+
+  &__desc {
+    letter-spacing: .01em;
+    font-size: .6875rem;
+
+    p {
+      margin: 0;
+
+      + p {
+        margin-top: 1em;
+      }
+    }
+  }
+
   &__img {
     display: block;
   }
@@ -189,6 +226,10 @@
   @include media-up(md) {
     &__parts {
       display: flex;
+
+      &:not(:last-child) {
+        margin-bottom: 2.5rem;
+      }
     }
 
     &__part_two {
@@ -206,7 +247,6 @@
     &__col_two {
       display: flex;
       justify-content: center;
-      align-items: center;
     }
 
     &__illustration {
