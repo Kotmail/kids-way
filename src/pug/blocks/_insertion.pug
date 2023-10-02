@@ -1,0 +1,8 @@
+mixin insertion(data, modifier)
+  .insertion(class=modifier)
+    .container
+      .insertion__wrapper
+        if (data.heading)
+          .insertion__heading!=data.heading
+        if (data.button)
+          a.btn.btn_filled_yellow.btn_rounded_full.insertion__btn(href=data.button.href)!=data.button.text

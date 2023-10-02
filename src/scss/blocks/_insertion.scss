@@ -1,0 +1,75 @@
+@use './utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.insertion {
+  &__wrapper {
+    padding: 1.5625rem 1.25rem;
+    border-radius: .3125rem;
+    background: $color-red url('images/insertion_bg.png') no-repeat center;
+  }
+
+  &__heading {
+    font-family: 'Century Gothic', sans-serif;
+    font-size: 1.625rem;
+    color: #fff;
+  }
+
+  &__btn {
+    min-width: 13.75rem;
+    min-height: 2.5rem;
+    font-weight: 500;
+    font-size: 1rem;
+  }
+
+  @include media-up(md) {
+    &__wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2.125rem 1.875rem 2.125rem 3.75rem;
+    }
+
+    &__heading {
+      flex: 1 1 auto;
+      padding-right: 2.5rem;
+      font-size: 1.875rem;
+    }
+
+    &__btn {
+      font-size: 1.0625rem;
+    }
+  }
+
+  @include media-up(lg) {
+    &__wrapper {
+      padding-left: 5rem;
+      padding-right: 3.4375rem;
+    }
+
+    &__heading {
+      font-size: 2.5rem;
+    }
+  }
+
+  @include media-up(xl) {
+    &__wrapper {
+      padding-left: 11.6875rem;
+      padding-right: 6.8125rem
+    }
+
+    &__heading {
+      letter-spacing: -.04em;
+      font-size: 3.75rem;
+    }
+  }
+
+  @include media-down(md) {
+    &__wrapper {
+      text-align: center;
+    }
+
+    &__heading:not(:last-child) {
+      margin-bottom: 1.125rem;
+    }
+  }
+}

@@ -31,7 +31,7 @@ mixin calc(data, modifier)
                     .field.calc__field.calc__field_number
                       label.field__label(for='calcFieldSoil') Почва:
                       input#calcFieldSoil.field__input(type='text' name='soil' placeholder='0' required)
-                  button.btn.btn_type_outline.btn_color_red.btn_rounded_sm.calc__btn(type='submit') Рассчитать
+                  button.btn.btn_outline_red.btn_rounded_sm.calc__btn(type='submit') Рассчитать
               .calc__part.calc__part_two
                 if (data.square)
                   .calc__square
@@ -52,7 +52,7 @@ mixin calc(data, modifier)
                     .radio.calc__radio
                       input#calcRadioPackage3.radio__input(type='radio' name='package' value='Компенсаторика')
                       label.radio__label(for='calcRadioPackage3') Компенсаторика
-                  button.btn.btn_type_outline.btn_color_red.btn_rounded_sm.calc__btn(type='submit') Получить
+                  button.btn.btn_outline_red.btn_rounded_sm.calc__btn(type='submit') Получить
         .calc__col.calc__col_two
           if (data.illustration)
             .calc__illustration

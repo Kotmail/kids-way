@@ -2,6 +2,9 @@
 @use './utils/variables' as *;
 
 .btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   padding: .3125rem .625rem;
   border: none;
   background: none;
@@ -20,12 +23,10 @@
     border-radius: 3.125rem;
   }
 
-  &_type_outline {
-    border: .0625rem solid #f2f2f2;
-  }
+  // Outline type.
 
-  &_color_red {
-    border-color: $color-red;
+  &_outline_red {
+    border: .0625rem solid $color-red;
     color: $color-red;
 
     &:hover,
@@ -40,8 +41,8 @@
     }
   }
 
-  &_color_blue {
-    border-color: $color-blue;
+  &_outline_blue {
+    border: .0625rem solid $color-blue;
     color: $color-blue;
 
     &:hover,
@@ -56,8 +57,8 @@
     }
   }
 
-  &_color_yellow {
-    border-color: $color-yellow;
+  &_outline_yellow {
+    border: .0625rem solid $color-yellow;
     color: $color-yellow;
 
     &:hover,
@@ -69,6 +70,53 @@
     &:active {
       border-color: color.adjust($color-yellow, $lightness: -8%);
       background-color: color.adjust($color-yellow, $lightness: -8%);
+    }
+  }
+
+  // Filled type.
+
+  &_filled_red {
+    background-color: $color-red;
+    color: #fff;
+
+    &:hover,
+    &:focus {
+      background-color: color.adjust($color-red, $lightness: 4%);
+      color: #fff;
+    }
+
+    &:active {
+      background-color: color.adjust($color-red, $lightness: -4%);
+    }
+  }
+
+  &_filled_blue {
+    background-color: $color-blue;
+    color: #fff;
+
+    &:hover,
+    &:focus {
+      background-color: color.adjust($color-blue, $lightness: 4%);
+      color: #fff;
+    }
+
+    &:active {
+      background-color: color.adjust($color-blue, $lightness: -4%);
+    }
+  }
+
+  &_filled_yellow {
+    background-color: $color-yellow;
+    color: #6b6b6b;
+
+    &:hover,
+    &:focus {
+      background-color: color.adjust($color-yellow, $lightness: 5%);
+      color: #6b6b6b;
+    }
+
+    &:active {
+      background-color: color.adjust($color-yellow, $lightness: -5%);
     }
   }
 }

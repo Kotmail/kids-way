@@ -11,6 +11,7 @@ block content
     src: 'images/banner/image1.jpg',
     alt: 'Баннер «Ребёнок часто болеет?»',
   }, ['page-layout__banner'])
+
   +calc({
     square: [
       {
@@ -71,3 +72,11 @@ block content
       alt: 'Логотип «Kids’Way»',
     }
   }, ['page-layout__calc'])
+
+  +insertion({
+    heading: 'Компенсаторика',
+    button: {
+      href: '#',
+      text: 'Узнать подробнее',
+    },
+  }, ['page-layout__insertion'])
