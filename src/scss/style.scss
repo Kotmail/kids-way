@@ -12,9 +12,13 @@
 @use './utils/helpers';
 
 // Include blocks.
+@use './blocks/btn';
+@use './blocks/field';
+@use './blocks/radio';
 @use './blocks/logo';
 @use './blocks/navbar';
 @use './blocks/banner';
+@use './blocks/calc';
 @use './blocks/header';
 @use './blocks/footer';
 
@@ -54,14 +58,25 @@ body {
 	}
 
   &_home {
-    #{$parent}__banner:not(:last-child) {
-      margin-bottom: 2.5rem;
+    #{$parent}__banner:not(:last-child),
+    #{$parent}__calc:not(:last-child) {
+      margin-bottom: 1.875rem;
+    }
+  }
+
+  @include media-up(md) {
+    &_home {
+      #{$parent}__banner:not(:last-child),
+      #{$parent}__calc:not(:last-child) {
+        margin-bottom: 2.5rem;
+      }
     }
   }
 
   @include media-up(lg) {
     &_home {
-      #{$parent}__banner:not(:last-child) {
+      #{$parent}__banner:not(:last-child),
+      #{$parent}__calc:not(:last-child) {
         margin-bottom: 3.75rem;
       }
     }

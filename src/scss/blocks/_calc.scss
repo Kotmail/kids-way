@@ -1,0 +1,248 @@
+@use './utils/variables' as *;
+@use './utils/mixins' as *;
+
+.calc {
+  $parent: &;
+
+  &__main-area {
+    padding: 1.5625rem;
+    border: .0625rem solid #bfbfbf;
+    border-radius: .3125rem;
+  }
+
+  &__fieldset {
+    margin: 0;
+    padding: 0;
+    border: none;
+
+    &:not(:last-child) {
+      margin-bottom: .875rem;
+    }
+  }
+
+  legend {
+    margin-bottom: .4375rem;
+    font-size: .8125rem;
+    color: #6b6b6b;
+  }
+
+  &__genders {
+    display: flex;
+  }
+
+  &__fields {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    gap: .875rem;
+  }
+
+  &__radio {
+    &:not(&_gender, :last-child) {
+      margin-bottom: .375rem;
+    }
+
+    &_gender {
+      display: flex;
+      min-height: .875rem;
+
+      &::before {
+        content: '';
+        position: relative;
+        top: .0625rem;
+        width: 0;
+        height: 0;
+        margin-right: .3125rem;
+        border-left: .5rem solid transparent;
+        border-right: .5rem solid transparent;
+      }
+    }
+
+    &_male::before {
+      border-top: .75rem solid $color-blue;
+    }
+
+    &_female {
+      margin-left: .9375rem;
+
+      &::before {
+        border-bottom: .75rem solid $color-red;
+      }
+    }
+  }
+
+  &__field {
+    .field__input {
+      width: 5rem;
+    }
+
+    &_number .field__input {
+      width: 1.875rem;
+    }
+  }
+
+  &__square {
+    display: grid;
+    grid-template-columns: repeat(3, 3.6875rem);
+    grid-auto-rows: 3.6875rem;
+    gap: .8125rem;
+  }
+
+  &__cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3.6875rem;
+    height: 3.6875rem;
+    background-color: #f2f2f2;
+    font-family: 'Century Gothic', sans-serif;
+    font-size: 1.125rem;
+
+    &_color_yellow {
+      background-color: $color-yellow;
+      color: #fff;
+    }
+
+    &_color_blue {
+      background-color: $color-blue;
+      color: #fff;
+    }
+
+    &_color_red {
+      background-color: $color-red;
+      color: #fff;
+    }
+  }
+
+  &__legends {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    &:not(:last-child) {
+      margin-bottom: 1.125rem;
+    }
+  }
+
+  &__legend {
+    position: relative;
+    padding-left: 1.875rem;
+    font-size: .8125rem;
+    color: #6b6b6b;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 0;
+      height: 0;
+      transform: translateY(-50%);
+      border-top: .4375rem solid transparent;
+      border-left: 1.25rem solid #f2f2f2;
+      border-bottom: .4375rem solid transparent;
+    }
+
+    &_color_red::before {
+      border-left-color: $color-red;
+    }
+
+    &_color_blue::before {
+      border-left-color: $color-blue;
+    }
+
+    &_color_yellow::before {
+      border-left-color: $color-yellow;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: .25rem;
+    }
+  }
+
+  &__btn {
+    min-width: 7.0625rem;
+    margin-top: 1.125rem;
+  }
+
+  &__img {
+    display: block;
+  }
+
+  @include media-up(sm) {
+    &__part_two {
+      display: flex;
+    }
+
+    &__form_two {
+      padding-left: 1.4375rem;
+
+      #{$parent}__btn {
+        margin-top: 1.875rem;
+      }
+    }
+
+    &__legends:not(:last-child) {
+      margin-bottom: 1.75rem;
+    }
+  }
+
+  @include media-up(md) {
+    &__parts {
+      display: flex;
+    }
+
+    &__part_two {
+      flex: 1 1 auto;
+      padding-left: 1.875rem;
+    }
+  }
+
+  @include media-up(lg) {
+    &__grid {
+      display: grid;
+      grid-template-columns: 44.375rem 1fr;
+    }
+
+    &__col_two {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__illustration {
+      max-width: 12.5rem;
+    }
+  }
+
+  @include media-up(xl) {
+    &__main-area {
+      padding: 2.4375rem 1.875rem;
+    }
+
+    &__cell {
+      font-size: 1.4375rem;
+    }
+
+    &__illustration {
+      max-width: none;
+    }
+  }
+
+  @include media-down(lg) {
+    &__col_two {
+      display: none;
+    }
+  }
+
+  @include media-down(md) {
+    &__part_one {
+      margin-bottom: 1.5625rem;
+    }
+  }
+
+  @include media-down(sm) {
+    &__square {
+      margin-bottom: 1.375rem;
+    }
+  }
+}

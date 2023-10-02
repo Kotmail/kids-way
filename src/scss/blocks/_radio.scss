@@ -1,0 +1,59 @@
+@use './utils/variables' as *;
+@use './utils/mixins' as *;
+
+.radio {
+  $parent: &;
+
+  &__input {
+    @include visually-hidden;
+
+    &:focus + #{$parent}__label::before {
+      box-shadow: 0 0 .375rem $color-blue;
+    }
+
+    &:checked + #{$parent}__label {
+      &::before {
+        border-color: $color-blue;
+      }
+
+      &::after {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+
+  &__label {
+    position: relative;
+    display: block;
+    padding-left: 1.25rem;
+    font-size: .8125rem;
+    color: #6b6b6b;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: .0625rem;
+      left: 0;
+      width: .8125rem;
+      height: .8125rem;
+      border: .0625rem solid #bfbfbf;
+      border-radius: 50%;
+      transition: border .35s;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: .3125rem;
+      left: .25rem;
+      width: .3125rem;
+      height: .3125rem;
+      border-radius: 50%;
+      transition: visibility .35s, opacity .35s;
+      visibility: hidden;
+      opacity: 0;
+      background-color: $color-blue;
+    }
+  }
+}

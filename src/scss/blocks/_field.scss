@@ -1,0 +1,24 @@
+@use "sass:color";
+
+.field {
+  &__label {
+    display: block;
+    margin-bottom: .4375rem;
+    font-size: .8125rem;
+    color: #6b6b6b;
+  }
+
+  &__input {
+    padding: 3px 5px;
+    outline: none;
+    border: 1px solid #bfbfbf;
+    transition: box-shadow .35s;
+    font-family: inherit;
+    font-size: .6875rem;
+
+    &:focus {
+      border-color: color.adjust(#bfbfbf, $lightness: -15%);
+      box-shadow: 0 0 6px color.adjust(#bfbfbf, $lightness: 8%);
+    }
+  }
+}

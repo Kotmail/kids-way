@@ -1,6 +1,7 @@
 include blocks/_logo
 include blocks/_navbar
 include blocks/_banner
+include blocks/_calc
 include blocks/_header
 include blocks/_footer
 
@@ -23,7 +24,7 @@ html(lang='en')
 		.page-layout(class=layoutClasses)
 			block header
 				+header({}, ['page-layout__header'])
-			.page-layout__content
+			main.page-layout__content
 				block content
 			block footer
 				+footer({}, ['page-layout__footer'])

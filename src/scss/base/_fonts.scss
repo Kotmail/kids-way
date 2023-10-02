@@ -13,3 +13,11 @@
       url('fonts/Inter-Medium/Inter-Medium.woff') format('woff');
   font-weight: 500;
 }
+
+@font-face {
+  font-display: swap;
+  font-family: 'Century Gothic';
+  src: url('fonts/CenturyGothic-Regular/CenturyGothic-Regular.woff2') format('woff2'),
+      url('fonts/CenturyGothic-Regular/CenturyGothic-Regular.woff') format('woff');
+  font-weight: normal;
+}

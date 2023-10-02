@@ -1,0 +1,59 @@
+mixin calc(data, modifier)
+  .calc(class=modifier)
+    .container
+      .calc__grid
+        .calc__col.calc__col_one
+          .calc__main-area
+            .calc__parts
+              .calc__part.calc__part_one
+                form.calc__form.calc__form_one(action='sender.php' method='POST')
+                  fieldset.calc__fieldset
+                    legend Пол:
+                    .calc__genders
+                      .radio.calc__radio.calc__radio_gender.calc__radio_male
+                        input#calcRadioMale.radio__input(type='radio' name='gender' checked value='Мужской')
+                        label.radio__label(for='calcRadioMale')
+                          span.visually-hidden Мужской
+                      .radio.calc__radio.calc__radio_gender.calc__radio_female
+                        input#calcRadioFemale.radio__input(type='radio' name='gender' value='Женский')
+                        label.radio__label(for='calcRadioFemale')
+                          span.visually-hidden Женский
+                  .calc__fields
+                    .field.calc__field
+                      label.field__label(for='calcFieldBirthday') Дата рождения:
+                      input#calcFieldBirthday.field__input(type='text' name='birthday' placeholder='03.12.2022' required)
+                    .field.calc__field.calc__field_number
+                      label.field__label(for='calcFieldAge') Возраст сегодня:
+                      input#calcFieldAge.field__input(type='text' name='age' placeholder='10' required)
+                    .field.calc__field
+                      label.field__label(for='calcFieldPsychotype') Психотип:
+                      input#calcFieldPsychotype.field__input(type='text' name='psychotype' placeholder='Первый' required)
+                    .field.calc__field.calc__field_number
+                      label.field__label(for='calcFieldSoil') Почва:
+                      input#calcFieldSoil.field__input(type='text' name='soil' placeholder='0' required)
+                  button.btn.btn_type_outline.btn_color_red.btn_rounded_sm.calc__btn(type='submit') Рассчитать
+              .calc__part.calc__part_two
+                if (data.square)
+                  .calc__square
+                    each cell in data.square
+                      .calc__cell(class=`calc__cell_color_${cell.color}`)!=cell.text
+                form.calc__form.calc__form_two(action='sender.php' method='POST')
+                  if (data.legends)
+                    ul.calc__legends
+                      each legend in data.legends
+                        li.calc__legend(class=`calc__legend_color_${legend.color}`)!=legend.text
+                  .calc__controls-group
+                    .radio.calc__radio
+                      input#calcRadioPackage1.radio__input(type='radio' name='package' checked value='Полный разбор')
+                      label.radio__label(for='calcRadioPackage1') Полный разбор
+                    .radio.calc__radio
+                      input#calcRadioPackage2.radio__input(type='radio' name='package' value='Личная консультация')
+                      label.radio__label(for='calcRadioPackage2') Личная консультация
+                    .radio.calc__radio
+                      input#calcRadioPackage3.radio__input(type='radio' name='package' value='Компенсаторика')
+                      label.radio__label(for='calcRadioPackage3') Компенсаторика
+                  button.btn.btn_type_outline.btn_color_red.btn_rounded_sm.calc__btn(type='submit') Получить
+        .calc__col.calc__col_two
+          if (data.illustration)
+            .calc__illustration
+              img.calc__img(src=data.illustration.src width=data.illustration.width height=data.illustration.height alt=data.illustration.alt)
