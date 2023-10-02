@@ -1,0 +1,49 @@
+@use 'sass:map';
+@use './variables' as *;
+
+// Breakpoints.
+
+@mixin media-up($name, $breakpoints: $breakpoints) {
+  $value: map.get($breakpoints, $name);
+
+  @if $value {
+    @media (min-width: $value) {
+      @content;
+    }
+  }
+}
+
+@mixin media-down($name, $breakpoints: $breakpoints) {
+  $value: map.get($breakpoints, $name);
+
+  @if $value {
+    @media (max-width: ($value - 1)) {
+      @content;
+    }
+  }
+}
+
+@mixin media-between($lower-name, $upper-name, $breakpoints: $breakpoints) {
+	$min: map.get($breakpoints, $lower-name);
+	$max: map.get($breakpoints, $upper-name);
+
+	@if $min != null and $max != null {
+		@media (min-width: $min) and (max-width: ($max - 1)) {
+			@content;
+		}
+	}
+}
+
+// Visually hidden.
+
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}

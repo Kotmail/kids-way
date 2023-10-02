@@ -1,0 +1,49 @@
+// Include fonts.
+@use './base/fonts';
+
+// Include grid.
+@use './base/grid';
+
+// Include mixins.
+@use './utils/mixins' as *;
+
+// Include helpers.
+@use './utils/helpers';
+
+// Include blocks.
+@use './blocks/header';
+@use './blocks/footer';
+
+// Global styles.
+*,
+::before,
+::after {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	height: 100%;
+	min-height: 100vh;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+}
+
+.page-layout {
+  display: flex;
+  flex-direction: column;
+  max-width: 1920px;
+  min-height: 100%;
+  margin: 0 auto;
+  font-family: Inter, sans-serif;
+
+  &__content {
+		flex: 1 1 auto;
+	}
+}
