@@ -7,4 +7,7 @@ block beforeLayout
   - layoutClasses.push('page-layout_home')
 
 block content
-  | Content
+  +banner({
+    src: 'images/banner/image1.jpg',
+    alt: 'Баннер «Ребёнок часто болеет?»',
+  }, ['page-layout__banner'])

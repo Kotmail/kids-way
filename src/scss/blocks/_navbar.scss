@@ -54,6 +54,7 @@
     overflow-y: auto;
     visibility: hidden;
     opacity: 0;
+    z-index: 10;
     background-color: rgba(#000, .85);
 
     &_opened {
