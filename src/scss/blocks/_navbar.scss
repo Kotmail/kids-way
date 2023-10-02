@@ -1,0 +1,92 @@
+@use '../utils/mixins' as *;
+@use "sass:color";
+
+.navbar {
+  $parent: &;
+
+  &__btn,
+  &__svg {
+    display: block;
+  }
+
+  &__btn {
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    background: none;
+
+    &_open:focus #{$parent}__svg,
+    &_open:hover #{$parent}__svg,
+    &_close:focus #{$parent}__svg,
+    &_close:hover #{$parent}__svg {
+      fill: color.adjust(#789eea, $lightness: 7%);
+    }
+
+    &_close {
+      position: absolute;
+      top: .9375rem;
+      right: .9375rem;
+    }
+  }
+
+  &__svg_list,
+  &__svg_close {
+    transition: fill .35s;
+    fill: #789eea;
+  }
+
+  &__svg_list {
+    position: relative;
+    left: .5rem;
+  }
+
+  &__box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 1.875rem .9375rem;
+    transition: visibility .35s, opacity .35s, transform .15s ease-in-out;
+    transform: scale(.95);
+    overflow-y: auto;
+    visibility: hidden;
+    opacity: 0;
+    background-color: rgba(#000, .85);
+
+    &_opened {
+      transform: scale(1);
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &__list {
+    margin: auto 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    font-weight: 500;
+    font-size: 1.0625rem;
+  }
+
+  &__item:not(:last-child) {
+    margin-bottom: 1.125rem;
+  }
+
+  &__link {
+    text-decoration: none;
+
+    &:not(:hover, :focus) {
+      color: #fff;
+    }
+  }
+
+  @include media-up(lg) {
+    &__list {
+      font-size: 1.1875rem;
+    }
+  }
+}

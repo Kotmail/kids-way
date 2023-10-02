@@ -1,0 +1,10 @@
+mixin get-logo-img(img)
+  img.logo__img(src=img.src width=img.width height=img.height alt=img.alt)
+
+mixin logo(data, modifier)
+  .logo(class=modifier)
+    if (data.home_link)
+      a.logo__link(href='/')
+        +get-logo-img(data.img)
+    else
+      +get-logo-img(data.img)

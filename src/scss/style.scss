@@ -5,12 +5,15 @@
 @use './base/grid';
 
 // Include mixins.
+@use "sass:color";
 @use './utils/mixins' as *;
 
 // Include helpers.
 @use './utils/helpers';
 
 // Include blocks.
+@use './blocks/logo';
+@use './blocks/navbar';
 @use './blocks/header';
 @use './blocks/footer';
 
@@ -46,4 +49,14 @@ body {
   &__content {
 		flex: 1 1 auto;
 	}
+}
+
+a {
+  transition: color .35s;
+  color: #789eea;
+
+  &:hover,
+  &:focus {
+    color: color.adjust(#789eea, $lightness: 7%);
+  }
 }

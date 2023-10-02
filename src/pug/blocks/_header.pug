@@ -1,2 +1,32 @@
 mixin header(data, modifier)
-  header.header(class=modifier) Header
+  header.header(class=modifier)
+    .container.header__container
+      +logo({
+        img: {
+          src: 'images/logo.png',
+          width: 77,
+          height: 30,
+          alt: 'Kids’Way — Первая нумерологическая платформа по раскрытию детского потенциала',
+        },
+        home_link: true,
+      }, ['header__logo'])
+      +navbar({
+        list: [
+          {
+            href: '#',
+            text: 'О&nbsp;нас',
+          },
+          {
+            href: '#',
+            text: 'Проект Kids’Way',
+          },
+          {
+            href: '#',
+            text: 'Детская матрица',
+          },
+          {
+            href: '#',
+            text: 'Компенсаторика',
+          },
+        ],
+      })

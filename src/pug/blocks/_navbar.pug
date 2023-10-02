@@ -1,0 +1,16 @@
+mixin navbar(data, modifier)
+  .navbar(class=modifier)
+    button.navbar__btn.navbar__btn_open(type='button' aria-expanded='false' aria-controls='navbarBox')
+      span.visually-hidden Показать/Скрыть навигацию
+      svg.navbar__svg.navbar__svg_list(width='40' height='36' aria-hidden='true')
+        use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='images/svg/sprite.svg#list')
+    #navbarBox.navbar__box
+      button.navbar__btn.navbar__btn_close(type='button')
+        span.visually-hidden Закрыть
+        svg.navbar__svg.navbar__svg_close(width='30' height='30' aria-hidden='true')
+          use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='images/svg/sprite.svg#close')
+      if (data.list)
+        ul.navbar__list
+          each item in data.list
+            li.navbar__item
+              a.navbar__link(href=item.href)!=item.text
