@@ -22,6 +22,7 @@
 @use './blocks/banner';
 @use './blocks/calc';
 @use './blocks/insertion';
+@use './blocks/rates';
 @use './blocks/footer';
 
 // Global styles.
@@ -53,28 +54,24 @@ body {
   margin: 0 auto;
   font-family: Inter, sans-serif;
 
-  $parent: &;
-
   &__content {
 		flex: 1 1 auto;
     padding-bottom: 2.5rem;
 	}
 
-  &_home {
-    #{$parent}__banner:not(:last-child),
-    #{$parent}__calc:not(:last-child) {
-      margin-bottom: 1.875rem;
-    }
+  &__banner:not(:last-child),
+  &_home &__calc:not(:last-child) {
+    margin-bottom: 1.875rem;
+  }
 
-    #{$parent}__btn_consult {
-      display: flex;
-      width: 13.875rem;
-      min-height: 2.625rem;
-      margin-top: 2.5rem;
-      margin-left: auto;
-      margin-right: auto;
-      font-size: 1rem;
-    }
+  &_home &__btn_consult {
+    display: flex;
+    width: 13.875rem;
+    min-height: 2.625rem;
+    margin-top: 2.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1rem;
   }
 
   @include media-up(md) {
@@ -82,24 +79,20 @@ body {
       padding-bottom: 3.75rem;
     }
 
-    &_home {
-      #{$parent}__banner:not(:last-child),
-      #{$parent}__calc:not(:last-child) {
-        margin-bottom: 2.5rem;
-      }
+    &__banner:not(:last-child),
+    &_home &__calc:not(:last-child) {
+      margin-bottom: 2.5rem;
+    }
 
-      #{$parent}__btn_consult {
-        margin-top: 3.75rem;
-      }
+    &_home &__btn_consult {
+      margin-top: 3.75rem;
     }
   }
 
   @include media-up(lg) {
-    &_home {
-      #{$parent}__banner:not(:last-child),
-      #{$parent}__calc:not(:last-child) {
-        margin-bottom: 3.75rem;
-      }
+    &__banner:not(:last-child),
+    &_home &__calc:not(:last-child) {
+      margin-bottom: 3.75rem;
     }
   }
 

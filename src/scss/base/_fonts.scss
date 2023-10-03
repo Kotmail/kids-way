@@ -21,3 +21,11 @@
       url('fonts/CenturyGothic-Regular/CenturyGothic-Regular.woff') format('woff');
   font-weight: normal;
 }
+
+@font-face {
+  font-display: swap;
+  font-family: 'Century Gothic';
+  src: url('fonts/CenturyGothic-Bold/CenturyGothic-Bold.woff2') format('woff2'),
+      url('fonts/CenturyGothic-Bold/CenturyGothic-Bold.woff') format('woff');
+  font-weight: 700;
+}

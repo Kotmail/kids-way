@@ -1,0 +1,152 @@
+@use './utils/variables' as *;
+@use './utils/mixins' as *;
+
+.rates {
+  &__heading {
+    margin: 0 0 1.25rem;
+    font-family: 'Century Gothic', sans-serif;
+    font-weight: 400;
+    font-size: 1.75rem;
+    color: #6b6b6b;
+  }
+
+  &__list {
+    display: grid;
+    gap: 1.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__box {
+    padding: .9375rem;
+    border: .125rem solid $color-blue;
+    border-radius: .625rem;
+    transition: border .35s;
+    color: #6b6b6b;
+  }
+
+  &__box_selected,
+  &__box:hover {
+    border-color: $color-red;
+  }
+
+  &__title {
+    margin: 0 0 .9375rem;
+    font-family: 'Century Gothic', sans-serif;
+    font-size: 1.125rem;
+    color: #4f81d3;
+  }
+
+  &__desc {
+    margin-bottom: .9375rem;
+    font-size: .9375rem;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__choice {
+    margin-bottom: .9375rem;
+  }
+
+  &__radio {
+    &:not(:last-child) {
+      margin-bottom: .125rem;
+    }
+
+    .radio__label {
+      text-transform: uppercase;
+      font-size: 1rem;
+
+      &::before {
+        top: .1875rem;
+      }
+
+      &::after {
+        top: .4375rem;
+      }
+    }
+  }
+
+  &__price {
+    margin-bottom: 1.25rem;
+    white-space: nowrap;
+    font-size: 1.25rem;
+  }
+
+  &__btn {
+    min-width: 7.75rem;
+    min-height: 2.5rem;
+    font-weight: 500;
+    font-size: 1.0625rem;
+  }
+
+  @include media-up(md) {
+    &__heading {
+      font-size: 2.125rem;
+    }
+
+    &__list {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+  @include media-up(lg) {
+    &__heading {
+      margin-bottom: 1.5625rem;
+      font-size: 2.375rem;
+    }
+
+    &__box {
+      padding: 1.25rem;
+    }
+
+    &__title,
+    &__price {
+      font-size: 1.3125rem;
+    }
+
+    &__desc {
+      font-size: 1rem;
+    }
+
+    &__price {
+      margin-bottom: 1.4375rem;
+    }
+  }
+
+  @include media-up(xl) {
+    &__heading {
+      margin-bottom: 1.875rem;
+      font-size: 2.625rem;
+    }
+
+    &__box {
+      padding: 1.75rem 1.875rem;
+    }
+
+    &__title,
+    &__price {
+      font-size: 1.625rem;
+    }
+
+    &__title {
+      margin-bottom: 1.25rem;
+    }
+
+    &__choice {
+      padding-top: .3125rem;
+      margin-bottom: 1.25rem;
+    }
+
+    &__price {
+      margin-bottom: 1.75rem;
+    }
+
+    &__btn {
+      font-size: 1.25rem;
+    }
+  }
+}

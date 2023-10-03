@@ -1,0 +1,23 @@
+mixin rates(data, modifier)
+  .rates(class=modifier)
+    .container
+      if (data.heading)
+        h2.rates__heading!=data.heading
+      if (data.list)
+        ul.rates__list
+          each item in data.list
+            li.rates__item
+              .rates__box
+                if (item.title)
+                  h3.rates__title!=item.title
+                if (item.desc)
+                  .rates__desc!=item.desc
+                if (item.choice)
+                  .rates__choice
+                    each choice in item.choice
+                      .radio.rates__radio
+                        input.radio__input(type='radio' id=choice.id name=choice.name value=choice.label || choice.value checked=choice.checked)
+                        label.radio__label(for=choice.id)!=choice.label
+                if (item.price)
+                  .rates__price!=item.price
+                button.btn.btn_filled_blue.btn_rounded_full.rates__btn(type='button')!=item.button || 'Купить'

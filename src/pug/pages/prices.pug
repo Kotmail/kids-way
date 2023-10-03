@@ -1,0 +1,49 @@
+extends ../layout
+
+block title
+  title KIDS’ WAY — Услуги
+
+block beforeLayout
+  - layoutClasses.push('page-layout_prices')
+
+block content
+  h1.visually-hidden Наши услуги
+
+  +banner({
+    src: 'images/banner/image2.jpg',
+    alt: 'Баннер «Ребёнок замкнут и необщителен?»',
+  }, ['page-layout__banner'])
+
+  +rates({
+    heading: 'Стоимость:',
+    list: [
+      {
+        title: 'Полный подробный разбор',
+        desc: '<p>(компенсаторика не входит)</p>',
+        price: '5 000 ₽',
+      },
+      {
+        title: 'Личная консультация специалиста',
+        desc: '<p>форматы&nbsp;&mdash; аудио и&nbsp;очная консультация по&nbsp;видео</p>',
+        choice: [
+          {
+            id: 'rateChoiceAudio',
+            name: 'consultFormat',
+            label: 'Аудио',
+            checked: true,
+          },
+          {
+            id: 'rateChoiceVideo',
+            name: 'consultFormat',
+            label: 'Видео',
+          },
+        ],
+        price: '15 000 ₽',
+      },
+      {
+        title: 'Блок компенсторики по&nbsp;всем энергиям',
+        desc: '<p>(таланты + кармические узлы)</p>',
+        price: '3 000 ₽',
+      },
+    ],
+  }, ['page-layout__rates'])
