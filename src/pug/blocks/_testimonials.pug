@@ -1,0 +1,9 @@
+mixin testimonials(data, modifier)
+  .testimonials(class=modifier)
+    .container
+      if (data.heading)
+        h2.testimonials__heading!=data.heading
+      if (data.list)
+        .testimonials__grid
+          each testimonial in data.list
+            +testimonial(testimonial, [testimonial.modifier, 'testimonials__testimonial'])

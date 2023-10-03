@@ -1,0 +1,83 @@
+@use './utils/variables' as *;
+@use './utils/mixins' as *;
+
+.testimonial {
+  padding-bottom: .9375rem;
+  border-bottom: .3125rem solid $color-blue;
+
+  $parent: &;
+
+  &__author-info {
+    margin-bottom: .8125rem;
+  }
+
+  &__title,
+  &__sub-title {
+    font-family: 'Century Gothic', sans-serif;
+    color: #4f81d3;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 1.375rem;
+
+    &:not(:last-child) {
+      margin-bottom: -0.125rem;
+    }
+  }
+
+  &_color_red {
+    border-color: $color-red;
+
+    #{$parent}__title,
+    #{$parent}__sub-title {
+      color: $color-red;
+    }
+  }
+
+  &_has-bg {
+    padding-top: .9375rem;
+    padding-left: .9375rem;
+    padding-right: .9375rem;
+    background-color: #f1f1f1;
+  }
+
+  @include media-up(md) {
+    &__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+  }
+
+  @include media-up(xl) {
+    padding-bottom: 1.875rem;
+
+    &__author-info {
+      margin-bottom: 1.1875rem;
+    }
+
+    &__title {
+      font-size: 1.625rem;
+
+      &:not(:last-child) {
+        margin-bottom: -0.3125rem;
+      }
+    }
+
+    &__sub-title {
+      font-size: 1.25rem;
+    }
+
+    &_has-bg {
+      padding-left: 1.5625rem;
+      padding-right: 1.5625rem;
+    }
+  }
+
+  @include media-down(md) {
+    &__column:not(:last-child) {
+      margin-bottom: 1.25em;
+    }
+  }
+}

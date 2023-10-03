@@ -1,0 +1,60 @@
+@use './utils/mixins' as *;
+
+.testimonials {
+  &__heading {
+    margin: 0;
+    font-family: 'Century Gothic', sans-serif;
+    font-weight: 400;
+    font-size: 1.75rem;
+    color: #6b6b6b;
+  }
+
+  &__grid {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  @include media-up(md) {
+    &__heading {
+      margin-bottom: -2.125rem;
+      font-size: 2.125rem;
+      line-height: 1;
+    }
+
+    &__testimonial:first-child .testimonial__author-info {
+      padding-top: 3.4375rem;
+    }
+  }
+
+  @include media-up(lg) {
+    &__heading {
+      margin-bottom: -2.375rem;
+      font-size: 2.375rem;
+    }
+
+    &__grid {
+      grid-template-columns: 1.3fr .7fr;
+    }
+
+    &__testimonial:first-child .testimonial__author-info {
+      padding-top: 4.5rem;
+    }
+  }
+
+  @include media-up(xl) {
+    &__heading {
+      margin-bottom: -2.625rem;
+      font-size: 2.625rem;
+    }
+
+    &__grid {
+      grid-template-columns: 1fr 24.125rem;
+    }
+  }
+
+  @include media-down(md) {
+    &__heading {
+      margin-bottom: 1.25rem;
+    }
+  }
+}

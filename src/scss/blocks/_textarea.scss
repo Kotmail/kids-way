@@ -4,7 +4,7 @@
 .textarea {
   color: #6b6b6b;
 
-  h2, p {
+  h2, p, &__image {
     &:first-child {
       margin-top: 0;
     }
@@ -35,14 +35,13 @@
     letter-spacing: .005em;
   }
 
-  &__note {
-    margin: 1.25em 0;
-    padding: 15px 20px;
+  &__note,
+  &__blockquote {
     background-color: $color-blue;
     font-family: 'Century Gothic', sans-serif;
     font-style: italic;
     font-weight: 700;
-    font-size: 17px;
+    font-size: 1.0625rem;
     line-height: 1.15;
     color: #fff;
 
@@ -55,10 +54,62 @@
     }
   }
 
+  &__note {
+    margin: 1.25em 0;
+    padding: .9375rem 1.25rem;
+  }
+
+  &__blockquote {
+    position: relative;
+    margin: 0 0 1.25em;
+    padding: 2.5rem 1.25rem;
+
+    &::before,
+    &::after {
+      position: absolute;
+      font-size: 3.375rem;
+    }
+
+    &::before {
+      content: '“';
+      top: .3125rem;
+      left: .1875rem;
+    }
+
+    &::after {
+      content: '”';
+      right: 1.25rem;
+      bottom: -1.3125rem;
+    }
+
+    p {
+      letter-spacing: normal;
+    }
+  }
+
+  &__image {
+    img {
+      display: block;
+    }
+
+    &_center img {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &_right img {
+      margin-left: auto;
+    }
+  }
+
   @include media-up(sm) {
+    &__note,
+    &__blockquote {
+      font-size: 1.1875rem;
+    }
+
     &__note {
       padding: 1.25rem 1.5625rem;
-      font-size: 1.1875rem;
     }
   }
 
@@ -89,6 +140,11 @@
     &__note {
       font-size: 1.375rem;
     }
+
+    &__image {
+      margin-top: 1.6em;
+      margin-bottom: 1.6em;
+    }
   }
 
   @include media-up(xl) {
@@ -104,6 +160,21 @@
       margin-top: 1.35em;
       margin-bottom: 1.3em;
       font-size: 1.625rem;
+    }
+
+    &__blockquote {
+      padding: 3.5rem .625rem 2.875rem 1.875rem;
+      font-size: 1.625rem;
+
+      &::before,
+      &::after {
+        font-size: 4.5rem;
+      }
+
+      &::after {
+        right: 1.625rem;
+        bottom: -1.75rem;
+      }
     }
   }
 }

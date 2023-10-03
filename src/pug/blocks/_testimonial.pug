@@ -1,0 +1,20 @@
+mixin testimonial-get-header(author_info)
+  .testimonial__author-info
+    if (author_info.title)
+      h3.testimonial__title!=author_info.title
+    if (author_info.sub_title)
+      .testimonial__sub-title!=author_info.sub_title
+
+mixin testimonial(data, modifier)
+  .testimonial(class=modifier)
+    if (data.content)
+      +testimonial-get-header(data.author_info)
+      +textarea(data.content, ['testimonial__textarea'])
+
+    if (data.columns)
+      .testimonial__grid
+        each column_content, i in data.columns
+          .testimonial__column
+            if (i === 0)
+              +testimonial-get-header(data.author_info)
+            +textarea(column_content, ['testimonial__textarea'])

@@ -9,16 +9,16 @@
   }
 
   &__input {
-    padding: 3px 5px;
+    padding: .1875rem .3125rem;
     outline: none;
-    border: 1px solid #bfbfbf;
+    border: .0625rem solid #bfbfbf;
     transition: box-shadow .35s;
     font-family: inherit;
     font-size: .6875rem;
 
     &:focus {
       border-color: color.adjust(#bfbfbf, $lightness: -15%);
-      box-shadow: 0 0 6px color.adjust(#bfbfbf, $lightness: 8%);
+      box-shadow: 0 0 .375rem color.adjust(#bfbfbf, $lightness: 8%);
     }
   }
 }
