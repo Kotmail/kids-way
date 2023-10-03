@@ -1,0 +1,98 @@
+@use './utils/variables' as *;
+@use './utils/mixins' as *;
+
+.base-info-grid {
+  $parent: &;
+
+  &__photo {
+    position: relative;
+    padding-bottom: calc(560 / 510 * 100%);
+    background-color: #f2f2f2;
+  }
+
+  &__illustration_extended {
+    display: flex;
+    flex-direction: column;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    border-top: .3125rem solid $color-blue;
+    border-bottom: .3125rem solid $color-blue;
+
+    #{$parent}__photo {
+      padding-bottom: calc(461 / 510 * 100%);
+    }
+  }
+
+  &__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__caption {
+    margin: 0;
+    padding-top: 1.25rem;
+    font-family: 'Century Gothic', sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.05;
+    color: #4f81d3;
+  }
+
+  @include media-up(lg) {
+    &__row {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    &__illustration {
+      flex: 0 0 25.375rem;
+    }
+
+    &__caption {
+      font-size: 1.25rem;
+    }
+
+    &__textarea {
+      flex: 1 1 auto;
+
+      &:not(:first-child) {
+        padding-left: 2.5rem;
+      }
+    }
+  }
+
+  @include media-up(xl) {
+    &__row {
+      align-items: stretch;
+    }
+
+    &__illustration {
+      flex-basis: 31.875rem;
+
+      &_extended {
+        max-height: 54.8125rem;
+        padding-top: 2.125rem;
+        padding-bottom: 2.125rem;
+      }
+    }
+
+    &__caption {
+      margin: auto 0;
+      padding-top: 2.125rem;
+      font-size: 1.625rem;
+    }
+
+    &__textarea:not(:first-child) {
+      padding-left: 5rem;
+    }
+  }
+
+  @include media-down(lg) {
+    &__illustration {
+      max-width: 22.5rem;
+      margin-bottom: 1.5625rem;
+    }
+  }
+}

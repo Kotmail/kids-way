@@ -3,9 +3,6 @@ extends ../layout
 block title
   title KIDS’ WAY — Об основателях проекта
 
-block beforeLayout
-  - layoutClasses.push('page-layout_prices')
-
 block content
   h1.visually-hidden Об основателях
 
@@ -14,19 +11,19 @@ block content
     alt: 'Баннер «Постоянные конфликты в школе?»',
   }, ['page-layout__banner'])
 
-  +founders({
-    photo: {
-      src: '',
-      width: 506,
+  +base-info-grid({
+    illustration: {
+      src: 'images/placeholder-510x560.svg',
+      width: 510,
       height: 560,
       alt: 'Любовь и Мила',
     },
     textarea: `<h2>Всем привет!</h2>
-               <p class="lead">Мы&nbsp;&mdash; Любовь и&nbsp;Мила, основатели проекта 
+               <p class="lead">Мы&nbsp;&mdash; Любовь и&nbsp;Мила, основатели проекта
                 Kids&rsquo;Way&nbsp;&mdash; первой нумерологической платформы
                 по&nbsp;раскрытию детского потенциала</p>
                <p>Как преподаватель физики, инженер современных технологий, директор
-                  по&nbsp;персоналу, экономист и&nbsp;психосоматолог (это только часть наших ролей на&nbsp;двоих)&nbsp;&mdash; мы&nbsp;обладаем 
+                  по&nbsp;персоналу, экономист и&nbsp;психосоматолог (это только часть наших ролей на&nbsp;двоих)&nbsp;&mdash; мы&nbsp;обладаем
                   не&nbsp;только глубокими теоретическими знаниями, но&nbsp;и&nbsp;владеем обширным спектром практических наработок, начиная
                   с&nbsp;курсов детского массажа, преподавательской деятельности, прикладной детской психологии, заканчивая такими современными
                   инструментами как&nbsp;&mdash; психосоматика и&nbsp;нумерология!</p>

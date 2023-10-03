@@ -1,0 +1,12 @@
+mixin base-info-grid(data, modifier)
+  .base-info-grid(class=modifier)
+    .container
+      .base-info-grid__row
+        if (data.illustration)
+          .base-info-grid__illustration(class=`${data.illustration.type === 'extended' ? 'base-info-grid__illustration_extended' : ''}`)
+            .base-info-grid__photo
+              img.base-info-grid__img(src=data.illustration.src width=data.illustration.width height=data.illustration.height alt=data.illustration.alt)
+            if (data.illustration.caption)
+              p.base-info-grid__caption!=data.illustration.caption
+        if (data.textarea)
+          +textarea(data.textarea, ['base-info-grid__textarea'])
