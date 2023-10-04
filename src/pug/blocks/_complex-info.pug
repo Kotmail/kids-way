@@ -1,0 +1,14 @@
+mixin complex-info(data, modifier)
+  .complex-info(class=modifier)
+    .container
+      if (data.content_areas)
+        .complex-info__grid
+            each content in data.content_areas
+              +textarea(content, ['complex-info__textarea'])
+      if (data.programs)
+        if (data.programs.heading)
+          h2.complex-info__heading!=data.programs.heading
+        if (data.programs.list)
+          .complex-info__programs
+            each program in data.programs.list
+              +program(program)

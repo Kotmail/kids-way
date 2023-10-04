@@ -1,0 +1,78 @@
+@use './utils/variables' as *;
+@use './utils/mixins' as *;
+
+.program {
+  &__row {
+    display: flex;
+  }
+
+  &__icon {
+    flex: 0 0 3.875rem;
+    width: 3.875rem;
+    height: 3.875rem;
+    border-radius: 50%;
+    background-color: $color-blue;
+
+    &_red {
+      background-color: $color-red;
+    }
+
+    &_yellow {
+      background-color: $color-yellow;
+    }
+  }
+
+  &__content {
+    flex: 1 1 auto;
+
+    &:not(:first-child) {
+      padding-left: .9375rem;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-family: 'Century Gothic', sans-serif;
+    font-style: italic;
+    font-size: 1.25rem;
+    color: #4f81d3;
+    line-height: 1;
+
+    &:not(:last-child) {
+      margin-bottom: .25rem;
+    }
+  }
+
+  &__caption {
+    margin: 0;
+    color: #6b6b6b;
+  }
+
+  @include media-up(lg) {
+    &__icon {
+      flex-basis: 4.5rem;
+      width: 4.5rem;
+      height: 4.5rem;
+    }
+
+    &__title {
+      font-size: 1.375rem;
+    }
+
+    &__content:not(:first-child) {
+      padding-left: 1.25rem;
+    }
+  }
+
+  @include media-up(xl) {
+    &__icon {
+      flex-basis: 5.125rem;
+      width: 5.125rem;
+      height: 5.125rem;
+    }
+
+    &__title {
+      font-size: 1.5rem;
+    }
+  }
+}

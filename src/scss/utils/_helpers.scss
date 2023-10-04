@@ -14,5 +14,9 @@
     .d-#{$breakpoint}-none {
       display: none;
     }
+
+    .d-#{$breakpoint}-block {
+      display: block;
+    }
   }
 }

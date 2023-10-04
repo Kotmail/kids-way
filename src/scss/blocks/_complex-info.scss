@@ -1,0 +1,98 @@
+@use './utils/variables' as *;
+@use './utils/mixins' as *;
+
+.complex-info {
+  &__heading {
+    margin: 0 0 1.5625rem;
+    font-family: 'Century Gothic', sans-serif;
+    font-weight: 400;
+    font-size: 1.75rem;
+    line-height: 1.1;
+    color: #6b6b6b;
+  }
+
+  &__grid,
+  &__programs {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  &__grid:not(:last-child) {
+    margin-bottom: 2.5rem;
+  }
+
+  &__textarea {
+    padding-bottom: 1.25rem;
+    border-bottom: .3125rem solid $color-blue;
+
+    &:nth-child(2) {
+      border-color: $color-red;
+    }
+  }
+
+  @include media-up(md) {
+    &__heading {
+      margin-bottom: 2.5rem;
+      font-size: 2.125rem;
+    }
+
+    &__programs {
+      grid-template-columns: 1fr 1fr;
+      row-gap: 1.875rem;
+    }
+  }
+
+  @include media-up(lg) {
+    &__heading {
+      margin-bottom: 3.125rem;
+      font-size: 2.375rem;
+    }
+
+    &__grid {
+      grid-template-columns: 1fr 1fr;
+
+      &:not(:last-child) {
+        margin-bottom: 3.8125rem;
+      }
+    }
+
+    &__programs {
+      gap: 2.5rem 1.875rem;
+    }
+  }
+
+  @include media-up(xl) {
+    &__heading {
+      margin-bottom: 3.4375rem;
+      font-size: 2.625rem;
+    }
+
+    &__grid {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    &__textarea {
+      padding-bottom: 1.875rem;
+
+      .textarea__image {
+        &:not(:first-child) {
+          margin-top: 2.3em;
+        }
+
+        &:not(:last-child) {
+          margin-bottom: 2.3em;
+        }
+      }
+    }
+
+    &__programs {
+      row-gap: 3.5625rem;
+    }
+  }
+
+  @include media-between(lg, xl) {
+    &__textarea:nth-child(3) {
+      grid-column: span 2;
+    }
+  }
+}

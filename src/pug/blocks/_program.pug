@@ -1,0 +1,10 @@
+mixin program(data, modifier)
+  .program(class=modifier)
+    .program__row
+      if (data.icon)
+        .program__icon(class=`${data.icon.color ? `program__icon_${data.icon.color}` : ''}`)
+          img.program__img(src=data.icon.src width='82' height='82' alt=data.icon.alt)
+      .program__content
+        h3.program__title!=data.title
+        if (data.caption)
+          p.program__caption!=data.caption

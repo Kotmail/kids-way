@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390.83 96.06">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #789eea;
+        stroke-miterlimit: 10;
+        stroke-width: 4px;
+      }
+    </style>
+  </defs>
+  <g id="Layer_3_copy" data-name="Layer 3 copy">
+    <rect class="cls-1" x="324.91" y="16.07" width="63.92" height="63.92"/>
+    <rect class="cls-1" x="225.63" y="16.07" width="63.92" height="63.92" transform="translate(153.12 288.33) rotate(-77.06)"/>
+    <rect class="cls-1" x="16.07" y="16.07" width="63.92" height="63.92" transform="translate(-19.89 48.03) rotate(-45)"/>
+    <rect class="cls-1" x="122.17" y="16.07" width="63.92" height="63.92" transform="translate(54.53 175.08) rotate(-69.21)"/>
+  </g>
+</svg>
