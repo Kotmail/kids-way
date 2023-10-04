@@ -11,6 +11,7 @@ import autoprefixer from 'autoprefixer';
 import styleLint from 'gulp-stylelint-esm'
 import { deleteAsync } from 'del';
 import imagemin from 'gulp-imagemin';
+import mozJpeg from 'imagemin-mozjpeg';
 import svgSprite from 'gulp-svg-sprite';
 import webpack from 'webpack-stream';
 import path from 'path';
@@ -131,7 +132,12 @@ export const compileJs = () => {
 // Compress images.
 export const compressImages = () => {
   return gulp.src(PATHS.img)
-    .pipe(imagemin())
+    .pipe(imagemin([
+      mozJpeg({
+        quality: 95,
+        progressive: true,
+      }),
+    ]))
     .pipe(gulp.dest(`${DEST_FOLDER}/images`));
 }
 
@@ -222,9 +228,9 @@ export default gulp.series(
     compilePug,
     compileScss,
     compileJs,
-    compressImages,
     generateSvgSprite,
   ),
+  compressImages,
   gulp.parallel(
     watcher,
     browserSyncServe

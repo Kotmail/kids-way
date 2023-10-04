@@ -28,6 +28,19 @@
     &:nth-child(2) {
       border-color: $color-red;
     }
+
+    .textarea__note {
+      padding: 1.375rem;
+      font-family: Inter, sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 1rem;
+    }
+  }
+
+  &_extended &__textarea:first-child {
+    padding-bottom: unset;
+    border-bottom: none;
   }
 
   @include media-up(md) {
@@ -56,8 +69,16 @@
       }
     }
 
+    &__textarea .textarea__note {
+      padding-bottom: 2rem;
+    }
+
     &__programs {
       gap: 2.5rem 1.875rem;
+    }
+
+    &_extended &__grid {
+      grid-template-columns: 1fr 17.75rem 1fr;
     }
   }
 
@@ -74,24 +95,27 @@
     &__textarea {
       padding-bottom: 1.875rem;
 
-      .textarea__image {
-        &:not(:first-child) {
-          margin-top: 2.3em;
-        }
+      .textarea__image:not(:first-child) {
+        margin-top: 2.3em;
+      }
 
-        &:not(:last-child) {
-          margin-bottom: 2.3em;
-        }
+      .textarea__image:not(:last-child),
+      .textarea__note:not(:last-child) {
+        margin-bottom: 2.3em;
       }
     }
 
     &__programs {
       row-gap: 3.5625rem;
     }
+
+    &_extended &__grid {
+      grid-template-columns: 1fr 17.75rem 30.625rem;
+    }
   }
 
   @include media-between(lg, xl) {
-    &__textarea:nth-child(3) {
+    &:not(&_extended) &__textarea:nth-child(3) {
       grid-column: span 2;
     }
   }
